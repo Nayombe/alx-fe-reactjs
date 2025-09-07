@@ -1,24 +1,24 @@
-mport { useState } from "react";
+import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
-// Import the three new components
-import Header from "./Header";
-import MainContent from "./MainContent";
-import Footer from "./Footer";
+// Import the three components
+import Header from "./Header.jsx";
+import MainContent from "./MainContent.jsx";
+import Footer from "./Footer.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      {/* New Components in Correct Order */}
+      {/* Render components in correct order */}
       <Header />
       <MainContent />
       <Footer />
 
-      {/* Existing Vite content (optional, can be removed later) */}
+      {/* (Optional) Vite starter content below */}
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
