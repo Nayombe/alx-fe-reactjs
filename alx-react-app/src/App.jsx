@@ -1,16 +1,24 @@
-import { useState } from "react";
+mport { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
-// Import your component
-import WelcomeMessage from "./components/WelcomeMessage";
+// Import the three new components
+import Header from "./Header";
+import MainContent from "./MainContent";
+import Footer from "./Footer";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
+      {/* New Components in Correct Order */}
+      <Header />
+      <MainContent />
+      <Footer />
+
+      {/* Existing Vite content (optional, can be removed later) */}
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -19,9 +27,6 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-
-      {/* This is what the checker is looking for */}
-      <WelcomeMessage />
 
       <h1>Vite + React</h1>
       <div className="card">
