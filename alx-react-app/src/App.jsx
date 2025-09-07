@@ -3,22 +3,31 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
-// Import the three components
-import Header from "./Header.jsx";
-import MainContent from "./MainContent.jsx";
-import Footer from "./Footer.jsx";
+// Import other components if you already created them
+import Header from "./components/Header.jsx";
+import MainContent from "./components/MainContent.jsx";
+import Footer from "./components/Footer.jsx";
+
+// Import UserProfile
+import UserProfile from "./components/UserProfile.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      {/* Render components in correct order */}
       <Header />
       <MainContent />
       <Footer />
 
-      {/* (Optional) Vite starter content below */}
+      {/* Use the UserProfile component with props */}
+      <UserProfile
+        name="Alice"
+        age="25"
+        bio="Loves hiking and photography"
+      />
+
+      {/* Optional: Keep the Vite starter code below or remove it if not needed */}
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
