@@ -3,12 +3,14 @@ import AddRecipeForm from './components/AddRecipeForm';
 import RecipeList from './components/RecipeList';
 import RecipeDetails from './components/RecipeDetails';
 import EditRecipeForm from './components/EditRecipeForm';
+import SearchBar from './components/SearchBar';
 
 function Home() {
   return (
     <div style={{ padding: 20, fontFamily: 'system-ui, Arial' }}>
       <h1>🍲 Recipe Sharing App</h1>
       <AddRecipeForm />
+      <SearchBar />
       <RecipeList />
     </div>
   );
@@ -21,7 +23,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/recipes/:id" element={<RecipeDetails />} />
         <Route path="/recipes/:id/edit" element={<EditRecipeForm />} />
-        {/* fallback */}
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
