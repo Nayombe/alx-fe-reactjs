@@ -3,14 +3,19 @@ import { useRecipeStore } from './recipeStore';
 
 const RecipeList = () => {
   const recipes = useRecipeStore((s) => s.recipes);
+  const filteredRecipes = useRecipeStore((s) => s.filteredRecipes);
+  const searchTerm = useRecipeStore((s) => s.searchTerm);
+
+  const listToShow =
+    searchTerm.trim().length > 0 ? filteredRecipes : recipes;
 
   return (
     <div>
       <h2>Recipes</h2>
-      {recipes.length === 0 ? (
-        <p>No recipes yet — add one!</p>
+      {listToShow.length === 0 ? (
+        <p>No recipes match your search.</p>
       ) : (
-        recipes.map((r) => (
+        listToShow.map((r) => (
           <div
             key={r.id}
             style={{
