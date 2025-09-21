@@ -2,12 +2,14 @@ import { create } from 'zustand';
 
 export const useRecipeStore = create((set) => ({
   recipes: [],
+  searchTerm: '',
+  filteredRecipes: [],
 
-  // Add a new recipe
+  // Add new recipe
   addRecipe: (newRecipe) =>
     set((state) => ({ recipes: [...state.recipes, newRecipe] })),
 
-  // Update a recipe by id (partial or full)
+  // Update recipe by id
   updateRecipe: (id, updatedFields) =>
     set((state) => ({
       recipes: state.recipes.map((r) =>
@@ -15,13 +17,21 @@ export const useRecipeStore = create((set) => ({
       ),
     })),
 
-  // Delete a recipe by id
+  // Delete recipe by id
   deleteRecipe: (id) =>
     set((state) => ({
       recipes: state.recipes.filter((r) => String(r.id) !== String(id)),
     })),
 
-  // Replace entire recipes array (useful for initialization)
+  // Replace entire recipe list
   setRecipes: (recipes) => set({ recipes }),
-}));
 
+  // Search functionality
+  setSearchTerm: (term) =>
+    set((state) => {
+      const filtered = state.recipes.filter((recipe) =>
+        recipe.title.toLowerCase().includes(term.toLowerCase())
+      );
+      return { searchTerm: term, filteredRecipes: filtered };
+    }),
+}));
