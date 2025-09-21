@@ -21,7 +21,6 @@ const RecipeDetails = () => {
     <div>
       <h1>{recipe.title}</h1>
       <p>{recipe.description}</p>
-      {/* explicitly include recipe.id */}
       <p><strong>ID:</strong> {recipe.id}</p>
       <p style={{ color: '#666' }}>
         Created: {recipe.createdAt ? new Date(recipe.createdAt).toLocaleString() : '—'}
