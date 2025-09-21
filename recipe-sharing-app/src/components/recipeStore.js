@@ -4,8 +4,8 @@ export const useRecipeStore = create((set) => ({
   recipes: [],
   searchTerm: '',
   filteredRecipes: [],
-  favorites: [],
-  recommendations: [],
+  favorites: [], 
+  recommendations: [], 
 
   // CRUD
   addRecipe: (newRecipe) =>
@@ -35,19 +35,19 @@ export const useRecipeStore = create((set) => ({
     }),
 
   // Favorites
-  addFavorite: (recipeId) =>
+  addFavorite: (recipeId) => 
     set((state) => {
-      if (state.favorites.includes(recipeId)) return state; // prevent duplicates
+      if (state.favorites.includes(recipeId)) return state;
       return { favorites: [...state.favorites, recipeId] };
     }),
 
-  removeFavorite: (recipeId) =>
+  removeFavorite: (recipeId) => 
     set((state) => ({
       favorites: state.favorites.filter((id) => id !== recipeId),
     })),
 
-  // Recommendations (simple mock logic)
-  generateRecommendations: () =>
+  // Recommendations
+  generateRecommendations: () => 
     set((state) => {
       const recommended = state.recipes.filter(
         (recipe) =>
